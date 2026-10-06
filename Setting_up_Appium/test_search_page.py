@@ -13,7 +13,7 @@ def test_search_web(driver, WebDriver):
     wait_for_element(driver, (AppiumBy.ACCESSIBILITY_ID, 'Search field'))
     driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'open flowers.com').click()
 
-    def is_present(driver, locator, timeout=10):
+    def is_present(driver, locator, timeout=5):
         try: 
             wait_for_element(driver, locator, timeout=timeout)
             return True
@@ -31,9 +31,9 @@ def test_search_web(driver, WebDriver):
     if is_present(driver, (AppiumBy.XPATH, "//*[contains(@name, 'Unlock')]")):
         driver.find_element(AppiumBy.XPATH, "//*[contains(@name, 'Not Interested')]")
 
-    wait_for_element(driver, (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='Link Actions'])[2]"), timeout=10)
+    wait_for_element(driver, (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='Link Actions'])[2]"), timeout=5)
     driver.find_element(AppiumBy.ACCESSIBILITY_ID, "Copy Link").click()
 
     # clicks the Close button on webview
     tap_percent(driver, 0.11, 0.12)
-    wait_for_element(driver, (AppiumBy.XPATH, "(//XCUIElementTypeStaticText[@Name='Search])[2]"), timeout=10)
+    wait_for_element(driver, (AppiumBy.XPATH, "(//XCUIElementTypeStaticText[@Name='Search])[2]"), timeout=5)
